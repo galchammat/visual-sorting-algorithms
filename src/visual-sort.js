@@ -1,12 +1,12 @@
 var randomArray = []
-const FPS = 1000
+const FPS = 60
 const soft = "#add8e6"
 const bold = "#000000"
 const highlight = "#FF6961"
 
 
 function setup(){
-	var height = 200
+	var height = 100
 	var width = 100
 
 	randomArray = genArray(width, height)
@@ -15,12 +15,16 @@ function setup(){
 }
 
 
+var mView = [];
 function mainLoop(){
 	sBubble = bubbleSort(randomArray.slice(0));
 	sBubble.canvas = "bubbleSortCanvas";
 	sSelection = selectionSort(randomArray.slice(0));
-	sSelection.canvas = "selectionSortCanvas"
-	let sorts = [sBubble, sSelection]
+	sSelection.canvas = "selectionSortCanvas";
+	mView = randomArray.slice(0);
+	sMerge = mergeSort(mView);
+	sMerge.canvas = "mergeSortCanvas";
+	let sorts = [sBubble, sSelection, sMerge];
 	
 	doFrame();
 
