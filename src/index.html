@@ -3,6 +3,7 @@
 <head>
 	<script type="text/javascript" src="visual-sort.js"></script>
 	<script type="text/javascript" src="sorting-algorithms.js"></script>
+	<script type="text/javascript" src="draw.js"></script>
 	<style type="text/css">
 		canvas {
 			border: 1px solid black;
@@ -10,60 +11,63 @@
 	</style>
 </head>
 
+<body bgcolor="#F5F5F5">
 
-<h1>
-	Sorting Algorithms
-</h1>
+	<h1>
+		Sorting Algorithms
+	</h1>
 
-<p>Find the source code on my <a href = "http://github.com/alchammatg">GitHub</a>.</p>
+	<p>Find the source code on my <a href = "http://github.com/alchammatg">GitHub</a>.</p>
 
-<br>
+	<br>
 
 
-<table>
+	<table>
 
-	<tr>
-		<th>Algorithm</th>
-		<th>Visual</th>
-		<th>Stats (In Progress)</th>
-	</tr>
+		<tr>
+			<th>Algorithm</th>
+			<th>Visual</th>
+			<th>Stats (In Progress)</th>
+		</tr>
 
-	<tr>
-		<td>Unsorted</td>
-		<td>
-			<canvas id="unsortedCanvas" width="200" height="100">
-			</canvas>
-		</td>
-		<td></td>
-	</tr>
+		<tr>
+			<td>Unsorted</td>
+			<td>
+				<canvas id="unsortedCanvas" width="200" height="100" bgcolor="#000000">
+				</canvas>
+			</td>
+			<td></td>
+		</tr>
 
-	<tr>
-		<td>Bubble Sort</td>
-		<td>
-			<canvas id="bubbleSortCanvas" width="200" height="100">
-			</canvas>
-		</td>
-		<td></td>
-	</tr>
+		<tr>
+			<td>Bubble Sort</td>
+			<td>
+				<canvas id="bubbleSortCanvas" width="200" height="100">
+				</canvas>
+			</td>
+			<td></td>
+		</tr>
 
-	<tr>
-		<td>Selection Sort</td>
-		<td>
-			<canvas id="selectionSortCanvas" width="200" height="100">
-			</canvas>
-		</td>
-		<td></td>
-	</tr>
+		<tr>
+			<td>Selection Sort</td>
+			<td>
+				<canvas id="selectionSortCanvas" width="200" height="100">
+				</canvas>
+			</td>
+			<td></td>
+		</tr>
 
-	<tr>
-		<td>Merge Sort <br>(In Progress)</td>
-		<td>
-			<canvas id="mergeSortCanvas" width="200" height="100">
-			</canvas>
-		</td>
-		<td></td>
-	</tr>
+		<tr>
+			<td>Merge Sort <br>(In Progress)</td>
+			<td>
+				<canvas id="mergeSortCanvas" width="200" height="100">
+				</canvas>
+			</td>
+			<td></td>
+		</tr>
 
-<script>setTimeout(setup, 100);</script>
+	<script>setTimeout(setup, 100);</script>
 
-</table>
+	</table>
+
+</body>

@@ -1,4 +1,5 @@
 var randomArray = []
+var solutionArray = []
 const FPS = 60
 const soft = "#add8e6"
 const bold = "#000000"
@@ -9,7 +10,10 @@ function setup(){
 	var height = 100
 	var width = 100
 
-	randomArray = genArray(width, height)
+	randomArray = genArray(width, height);
+	console.log(randomArray);
+	solutionArray = randomArray.slice(0).sort(function(a, b){return a - b});
+
 	drawArray("unsortedCanvas", randomArray);
 	mainLoop();
 }
@@ -22,7 +26,7 @@ function mainLoop(){
 	sSelection = selectionSort(randomArray.slice(0));
 	sSelection.canvas = "selectionSortCanvas";
 	mView = randomArray.slice(0);
-	sMerge = mergeSort(mView);
+	sMerge = mergeSort(randomArray.slice(0), 0);
 	sMerge.canvas = "mergeSortCanvas";
 	let sorts = [sBubble, sSelection, sMerge];
 	
@@ -41,39 +45,18 @@ function mainLoop(){
 		for(var x = 0; x < sorts.length; x++){
 			sorter = sorts[x];
 			sortData = sorter.next().value;
+			if (sorter.canvas == "mergeSortCanvas") console.log(sortData);
+
 			if (sortData != undefined){
 		        drawArray(sorter.canvas, sortData[ARRAY], 
 		        	sortData[POINTER], sortData[SWAP]);
+		       
+		        //The Array has been completely sorted
+				if (sortData[ARRAY] == solutionArray){
+					sorts.splice(x)
+				}
 			}
 		}
-	}
-}
-
-
-function drawArray(canvasId, inputArray, pointer = null, swap = []){
-	var canvas = document.getElementById(canvasId);
-	var ctx = canvas.getContext("2d");
-	
-	var height = canvas.height;
-	ctx.clearRect(0,0,canvas.width,height);
-
-	ctx.fillStyle = soft;
-	let length = inputArray.length
-
-	x = 0;
-	while(x < length){
-		if(x == pointer){
-			ctx.fillStyle = bold;
-			ctx.fillRect(2*x,height,2,-inputArray[x]);
-			ctx.fillStyle = soft;
-		}
-		else if(swap.includes(x)){
-			ctx.fillStyle = highlight;
-			ctx.fillRect(2*x,height,2,-inputArray[x]);
-			ctx.fillStyle = soft;
-		}
-		else ctx.fillRect(2*x,height,2,-inputArray[x]);
-		x++;
 	}
 }
 

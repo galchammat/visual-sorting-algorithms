@@ -2,6 +2,7 @@ var swapsMS = 0;
 var swapsBS = 0;
 var swapsSS = 0;
 
+
 function* bubbleSort(array) {
 	var lastswap = [];
 	for(i = 0; i < array.length - 1; i ++){
@@ -17,40 +18,45 @@ function* bubbleSort(array) {
 
 
 function* selectionSort(array) {
-	var lastswap = [];
+	var vSwap = [];
     for(var i=0; i<array.length; i++){
         var mi = i;
         
         for(var j = i + 1; j<array.length; j++) {
-        	yield [array, j, lastswap];
+        	yield [array, j, vSwap];
             if(array[j] < array[mi])
                 mi = j;
         }
 
         swap(array, i, mi);
-        lastswap = [i, mi];
+        vSwap = [i, mi];
     }
-    yield [array, j, lastswap];
-};
 
+    yield [array, j, vSwap];
+}
 
-function* mergeSort(array) {
-	console.log(randomArray.length - array.length);
+function* mergeSort(array, vStart) {
 	if (array.length <2) return array;
-	var middle = Math.floor(array.length / 2);
-	var left = array.slice(0, middle);
-	var right = array.slice(middle, array.length);
+	// Pointer for array reconstruction for visual representation
+	const vEnd = vStart + array.length;
+	const pointer = [vStart,vEnd];
 
-	yield[mView, middle];
-	// console.log(mView);
-	return merge(yield* mergeSort(left), yield* mergeSort(right));
+	yield[mView, pointer];
+	console.log("YIELDED")
+
+	const middle = Math.floor(array.length / 2);
+	const left = array.slice(0, middle);
+	const right = array.slice(middle, array.length);
+
+
+
+	return merge(yield* mergeSort(left, vStart), yield* mergeSort(right, vStart + middle), pointer);
 
 }
 
 
-function merge(left, right) {
+function merge(left, right, pointer) {
 	var result = [];
-
 	while (left.length && right.length){
 		if (left[0] <= right[0]) {
 			result.push(left.shift());
@@ -62,6 +68,8 @@ function merge(left, right) {
 
 	while (left.length) result.push(left.shift());
 	while (right.length) result.push(right.shift());
+
+	mView = buildRecursedArray(mView, result, pointer);
 	return result;
 }
 
@@ -74,6 +82,12 @@ function swap(array, a, b) {
 }
 
 
-function buildRecursedArray(main, changes) {
-	return
+function buildRecursedArray(main, changes, pointer) {
+	start = pointer[0];
+	end = pointer[1];
+
+	for (x = start; x < end; x++){
+		main[x] = changes[x - start];
+	}
+	return main
 }
