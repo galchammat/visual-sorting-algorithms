@@ -1,0 +1,100 @@
+.header {
+  background-color: #BF3030;
+  padding: 10px;
+  text-align: center;
+}
+
+.weblink:visited{
+  color: black;
+}
+
+.weblink{
+  text-decoration: none;
+}
+
+.main-content {
+  background-color: #e3e3e3;
+  padding: 10px;
+  text-align: center;
+}
+
+.controls {
+  background-color: #b5b5b5;
+  padding: 10px;
+  text-align: center;
+}
+
+.animation-table {
+  padding: 10px;
+  text-align: left;
+
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  /*z-index: -1;*/
+}
+
+.header-col {
+  border-bottom:2px dashed black;
+  padding-bottom: 10px;
+}
+
+
+.control-top{
+  text-align: center;
+  border-bottom: 1px dotted black;
+}
+
+.slidecontainer {
+  width: 100%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  /*width: 100%; */
+  height: 25px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #A60000; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #A60000; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.button {
+  background-color: #A60000; /* Green */
+  border: none;
+  color: white;
+  padding: 5px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.button:active {
+  outline: none;
+}

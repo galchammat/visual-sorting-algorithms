@@ -1,9 +1,11 @@
 <!DOCTYPE HTML>
 
 <head>
-	<script type="text/javascript" src="visual-sort.js"></script>
+	<script type="text/javascript" src="animation-controller.js"></script>
 	<script type="text/javascript" src="sorting-algorithms.js"></script>
 	<script type="text/javascript" src="draw.js"></script>
+	<script type="text/javascript" src="inputs.js"></script>
+	<link rel = "stylesheet" type = "text/css" href = "index.css" />
 	<style type="text/css">
 		canvas {
 			border: 1px solid black;
@@ -13,61 +15,83 @@
 
 <body bgcolor="#F5F5F5">
 
-	<h1>
-		Sorting Algorithms
-	</h1>
+	<div class="header">
+		<a class="weblink" target="_blank" href = "http://github.com/alchammatg">
+			<div style="display: inline-block" class="title">
+				<h1>Sorting Algorithms Visualized</h1>
+				<h2>By Ghazi Alchammat <img style="display: inline-block" width="25" height="25" src="GitHub-Mark/GitHub-Mark-Light-120px-plus.png"></h2>
+			</div>
+		</a>
+	
+	</div>
 
-	<p>Find the source code on my <a href = "http://github.com/alchammatg">GitHub</a>.</p>
 
-	<br>
+	<div class="main-content">
+		<div class="controls" style="display: inline-block">
+			<table class="controls-table">
+				<tr>
+					<td class="control-top">
+						<p>Speed <input type="range" min="1" max="250" value="5" class="slider" id="fpsRange"> </p>
+					</td>
 
+					<td class="control-top">
+						<p>Array Size <input type="range" min="10" max="200" step = "5" value="50" class="slider" id="arrayRange"> </p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<button type="button" class="button" id="playButton">Play/Pause</button>
+					</td>
 
-	<table>
+					<td>
+	  					<button type="button" class="button" id="restartButton">Restart</button>
+	  				</td>
+	  			</tr>
+			</table>
+		</div>
 
-		<tr>
-			<th>Algorithm</th>
-			<th>Visual</th>
-			<th>Stats (In Progress)</th>
-		</tr>
+		<div class="visuals" >
+			<table class="animation-table">
 
-		<tr>
-			<td>Unsorted</td>
-			<td>
-				<canvas id="unsortedCanvas" width="200" height="100" bgcolor="#000000">
-				</canvas>
-			</td>
-			<td></td>
-		</tr>
+				<tr>
+					<th class="header-col">Algorithm</th>
+					<th class="header-col">Visual</th>
+				</tr>
 
-		<tr>
-			<td>Bubble Sort</td>
-			<td>
-				<canvas id="bubbleSortCanvas" width="200" height="100">
-				</canvas>
-			</td>
-			<td></td>
-		</tr>
+				<tr>
+					<td>Unsorted</td>
+					<td>
+						<canvas id="unsortedCanvas" class="baseCanvas" width="400" height="100" bgcolor="#000000">
+						</canvas>
+					</td>
+				</tr>
 
-		<tr>
-			<td>Selection Sort</td>
-			<td>
-				<canvas id="selectionSortCanvas" width="200" height="100">
-				</canvas>
-			</td>
-			<td></td>
-		</tr>
+				<tr>
+					<td>Merge Sort</td>
+					<td>
+						<canvas id="mergeSortCanvas" class="sortCanvas" width="400" height="100">
+						</canvas>
+					</td>
+				</tr>
 
-		<tr>
-			<td>Merge Sort</td>
-			<td>
-				<canvas id="mergeSortCanvas" width="200" height="100">
-				</canvas>
-			</td>
-			<td></td>
-		</tr>
+				<tr>
+					<td>Bubble Sort</td>
+					<td>
+						<canvas id="bubbleSortCanvas" class="sortCanvas" width="400" height="100">
+						</canvas>
+					</td>
+				</tr>
 
-	<script>setTimeout(setup, 100);</script>
+				<tr>
+					<td>Selection Sort</td>
+					<td>
+						<canvas id="selectionSortCanvas" class="sortCanvas" width="400" height="100">
+						</canvas>
+					</td>
+				</tr>
 
-	</table>
+			</table>
+		</div>
+	</div>
 
 </body>
