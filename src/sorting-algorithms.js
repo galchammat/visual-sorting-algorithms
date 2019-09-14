@@ -35,6 +35,7 @@ function* selectionSort(array) {
     yield [array, j, vSwap];
 }
 
+
 function* mergeSort(array, vStart) {
 	if (array.length <2) return array;
 	// Pointer for array reconstruction for visual representation
@@ -42,7 +43,6 @@ function* mergeSort(array, vStart) {
 	const pointer = [vStart,vEnd];
 
 	yield[mView, pointer];
-	console.log("YIELDED")
 
 	const middle = Math.floor(array.length / 2);
 	const left = array.slice(0, middle);
