@@ -11,7 +11,6 @@ window.onload = function() {
 
 
 var randomArray = [];
-var solutionArray = [];
 
 var FPS;
 var arraySize;
@@ -37,9 +36,6 @@ function setup() {
 
 
 function setupAnimation() {
-	
-	solutionArray = randomArray.slice(0).sort(function(a, b){return a - b});
-
 	clearAllCanvases();
 	drawArray("unsortedCanvas", randomArray);
 
@@ -118,7 +114,7 @@ function resizeArray(size) {
 
 function resetAnimation() {
 	stopAnimation = true;
-	setupAnimation();
+	setTimeout(setupAnimation, 50);
 }
 
 

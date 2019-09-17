@@ -1,27 +1,50 @@
+body {
+  background-color: #151515;
+  color: #f5f5f5;
+}
+
+
 .header {
   background-color: #BF3030;
+  padding: 5px;
+  text-align: center;
+  margin-bottom: 5px;
+  font-family: Helvetica;
+}
+
+.main-content {
+  background-color: #212121;
   padding: 10px;
   text-align: center;
+  font-family: Comic Sans MS;
+}
+
+.controls {
+  background-color: #303030;
+  padding: 10px;
+  text-align: center;
+  font-family: Helvetica;
+}
+
+button {
+  font-family: Helvetica;
+}
+
+.weblink:hover #git-mark-dark{
+  display: none !important;
+}
+
+.weblink:hover #git-mark-light{
+  display: inline-block !important;
 }
 
 .weblink:visited{
-  color: black;
+  color: #f5f5f5;
 }
 
 .weblink{
   text-decoration: none;
-}
-
-.main-content {
-  background-color: #e3e3e3;
-  padding: 10px;
-  text-align: center;
-}
-
-.controls {
-  background-color: #b5b5b5;
-  padding: 10px;
-  text-align: center;
+  color: #f5f5f5;
 }
 
 .animation-table {
@@ -35,14 +58,14 @@
 }
 
 .header-col {
-  border-bottom:2px dashed black;
+  border-bottom:2px dashed #686868;
   padding-bottom: 10px;
 }
 
 
 .control-top{
   text-align: center;
-  border-bottom: 1px dotted black;
+  border-bottom: 1px dotted #686868;
 }
 
 .slidecontainer {
@@ -55,7 +78,7 @@
   appearance: none;
   /*width: 100%; */
   height: 25px; /* Specified height */
-  background: #d3d3d3; /* Grey background */
+  background: #212121; /* Grey background */
   outline: none; /* Remove outline */
   opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
   -webkit-transition: .2s; /* 0.2 seconds transition on hover */
@@ -97,4 +120,18 @@
 
 .button:active {
   outline: none;
+}
+
+#git-mark-dark{
+}
+
+#git-mark-light{
+  display: none !important;
+  position:relative;
+}
+
+canvas {
+  border:1px solid #686868;
+  width:400px;
+  height:100px;
 }
