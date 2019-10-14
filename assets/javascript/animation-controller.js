@@ -46,7 +46,9 @@ function setupAnimation() {
 	mView = randomArray.slice(0);
 	var sMerge = mergeSort(randomArray.slice(0), 0);
 	sMerge.canvas = "mergeSortCanvas";
-	return [sBubble, sSelection, sMerge];
+	var sQuick = quickSort(randomArray.slice(0));
+	sQuick.canvas = "quickSortCanvas";
+	return [sBubble, sSelection, sMerge, sQuick];
 }
 
 
